@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSettings } from '../data/user-settings';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-settings-forms',
@@ -17,4 +18,8 @@ export class UserSettingsFormsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  submitUserSettingsForm(form: NgForm) {
+    console.log('TCL: UserSettingsFormsComponent -> submitUserSettingsForm -> form', form);
+  }
 }

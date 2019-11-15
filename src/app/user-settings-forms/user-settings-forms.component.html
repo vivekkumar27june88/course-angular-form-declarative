@@ -1,16 +1,19 @@
 <div class="container">
   <h2>User Settings</h2>
-  <form #form="ngForm">
+  <form #form="ngForm"
+    (ngSubmit)="submitUserSettingsForm(form)">
+
     <div class="form-group">
       <label for="name">NAME</label>
       <input id="name"
+        [class.form-field-err]="form.submitted && nameInp.invalid"
         [(ngModel)]="userSettings.name"
         name="name"
         class="form-control"
         required
         #nameInp="ngModel">
 
-      <div [hidden]="nameInp.valid || nameInp.untouched"
+      <div [hidden]="!form.submitted || nameInp.invalid"
         class="alert alert-danger">
         Enter a name (required)
       </div>
