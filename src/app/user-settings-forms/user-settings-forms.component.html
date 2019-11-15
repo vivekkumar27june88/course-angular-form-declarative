@@ -1,16 +1,19 @@
 <div class="container">
   <h2>User Settings</h2>
-  <form #form="ngForm"
-    ngNativeValidate>
+  <form #form="ngForm">
     <div class="form-group">
       <label for="name">NAME</label>
       <input id="name"
         [(ngModel)]="userSettings.name"
         name="name"
-        max="10"
-        type="number"
-        class="form-control">
+        class="form-control"
+        required
+        #nameInp>
     </div>
+
+    <pre>
+{{nameInp.className | json}}
+    </pre>
 
     <div class="form-check form-group">
       <input class="form-check-input"
