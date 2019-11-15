@@ -1,11 +1,14 @@
 <div class="container">
   <h2>User Settings</h2>
-  <form #form="ngForm">
+  <form #form="ngForm"
+    ngNativeValidate>
     <div class="form-group">
       <label for="name">NAME</label>
       <input id="name"
         [(ngModel)]="userSettings.name"
         name="name"
+        max="10"
+        type="number"
         class="form-control">
     </div>
 
@@ -98,12 +101,12 @@
   <tr>
     <td>
       <pre>
-          {{ form.value | json}}
+{{ form.value | json}}
         </pre>
     </td>
     <td>
       <pre>
-          {{ userSettings | json}}
+{{ userSettings | json}}
       </pre>
     </td>
   </tr>
