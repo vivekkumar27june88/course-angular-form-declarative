@@ -1,8 +1,26 @@
-<input type="checkbox"
-  id="showDeclarativeForm"
-  (click)="checkboxClickHandler($event)">
-<label for="showDeclarativeForm">Show Declarative Form</label>
+<form class="form container">
+
+  <div class="form-group">
+    <input type="radio" id="showDeclarativeForm" name="showDeclarativeForm" [(ngModel)]="formType"
+      value="showDeclarativeForm" (click)="checkboxClickHandler($event, 'showDeclarativeForm')">
+    <label for="showDeclarativeForm">Show Declarative Form</label>
+  </div>
+
+  <div class="form-group">
+    <input type="radio" id="showReactiveForm" name="showReactiveForm" [(ngModel)]="formType" value="showReactiveForm"
+      (click)="checkboxClickHandler($event, 'showReactiveForm')">
+    <label for="showReactiveForm">Show Reactive Form</label>
+  </div>
+
+  <div class="form-group">
+    <input type="radio" id="showDynamicForm" name="showDynamicForm" [(ngModel)]="formType" value="showDynamicForm"
+      (click)="checkboxClickHandler($event, 'showDynamicForm')">
+    <label for="showDynamicForm">Show Dynamic Form</label>
+  </div>
+</form>
 
 <app-user-settings-forms *ngIf="showDeclarativeForm"></app-user-settings-forms>
 
-<app-user-settings-reactive-form *ngIf="!showDeclarativeForm"></app-user-settings-reactive-form>
+<app-user-settings-reactive-form *ngIf="showReactiveForm"></app-user-settings-reactive-form>
+
+<app-user-registration *ngIf="showDynamicForm"></app-user-registration>
