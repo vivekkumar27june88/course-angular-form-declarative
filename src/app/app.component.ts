@@ -21,13 +21,13 @@ export class AppComponent {
         break;
 
       case 'showReactiveForm':
-        this.showReactiveForm = false;
+        this.showDeclarativeForm = false;
         this.showReactiveForm = event.target['checked'];
         this.showDynamicForm = false;
         break;
 
       case 'showDynamicForm':
-        this.showDynamicForm = false;
+        this.showDeclarativeForm = false;
         this.showReactiveForm = false;
         this.showDynamicForm = event.target['checked'];
         break;
