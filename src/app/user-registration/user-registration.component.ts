@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { noDecimal } from '../validators/decimal-validator';
 
 @Component({
   selector: 'app-user-registration',
@@ -29,10 +30,7 @@ export class UserRegistrationComponent implements OnInit {
           { value: '', disabled: false },
           [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
         ],
-        age: [
-          { value: '', disabled: false },
-          [Validators.required, Validators.max(200), Validators.min(5)]
-        ]
+        age: ['', { validators: [noDecimal], updateOn: 'change' }]
       }),
       login: this.fb.group({
         username: [

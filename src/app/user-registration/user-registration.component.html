@@ -27,11 +27,17 @@
     <div class="form-group row">
       <label for="age"
         class="col-sm-3 col-form-label">Age</label>
-      <input type="number"
+      <input type="text"
         formControlName="age"
+        [ngClass]="{'is-invalid': regForm.get('basic.age')?.invalid}"
         class="form-control col-sm-9"
         name="age" />
     </div>
+    <div *ngIf="regForm.get('basic.age')?.hasError('noDecimal')"
+      class="error text-danger text-center m-0">
+      Age must be in digit only
+    </div>
+
   </div>
 
 
