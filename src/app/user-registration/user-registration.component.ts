@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { allowedUsername } from '../validators/allowed-username-validator';
 import { noDecimal } from '../validators/decimal-validator';
 
 @Component({
@@ -35,7 +36,12 @@ export class UserRegistrationComponent implements OnInit {
       login: this.fb.group({
         username: [
           { value: '', disabled: false },
-          [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
+          [
+            Validators.required,
+            Validators.minLength(5),
+            Validators.maxLength(50),
+            allowedUsername(['username1', 'username2'])
+          ]
         ],
         email: [
           { value: '', disabled: false },
