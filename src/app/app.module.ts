@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserSettingsFormsComponent } from './user-settings-forms/user-settings-forms.component';
 import { UserSettingsReactiveFormComponent } from './user-settings-reactive-form/user-settings-reactive-form.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
-  declarations: [AppComponent, UserSettingsFormsComponent, UserSettingsReactiveFormComponent],
+  declarations: [AppComponent, UserSettingsFormsComponent, UserSettingsReactiveFormComponent, UserRegistrationComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
