@@ -101,6 +101,19 @@
       </select>
     </div>
 
+    <div class="form-group mb-1">
+      <label for="address"
+        class="font-weight-bold">Address</label>
+      <input id="address"
+        class="form-control"
+        name="address"
+        formControlName="address">
+    </div>
+    <div *ngIf="userSettingForm.get('address').hasError('required')"
+      class="alert alert-danger">
+      Address is mandatory
+    </div>
+
     <div class="form-group mb-5">
       <label for="notes"
         class="font-weight-bold">Notes</label>
