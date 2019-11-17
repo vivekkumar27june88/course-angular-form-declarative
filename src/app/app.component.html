@@ -1,1 +1,8 @@
-<app-user-settings-forms></app-user-settings-forms>
+<input type="checkbox"
+  id="showDeclarativeForm"
+  (click)="checkboxClickHandler($event)">
+<label for="showDeclarativeForm">Show Declarative Form</label>
+
+<app-user-settings-forms *ngIf="showDeclarativeForm"></app-user-settings-forms>
+
+<app-user-settings-reactive-form *ngIf="!showDeclarativeForm"></app-user-settings-reactive-form>

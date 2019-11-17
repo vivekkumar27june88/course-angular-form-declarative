@@ -1,20 +1,19 @@
 <div class="container">
   <h2 class="mb-5">User Settings</h2>
-  <form #form="ngForm"
-    (ngSubmit)="submitUserSettingsForm(form)">
+  <form (ngSubmit)="submitUserSettingsForm()"
+    [formGroup]="userSettingForm">
 
     <div class="form-group mb-4">
       <label for="name"
         class="font-weight-bold">NAME</label>
       <input id="name"
-        [class.form-field-err]="form.submitted && nameInp.invalid"
-        [(ngModel)]="userSettings.name"
+        formControlName="name"
+        [class.form-field-err]="formSubmitted && userSettingForm.get('name').invalid"
         name="name"
         class="form-control"
-        required
-        #nameInp="ngModel">
+        required>
 
-      <div [hidden]="!form.submitted || nameInp.invalid"
+      <div [hidden]="!formSubmitted || userSettingForm.get('name').valid"
         class="alert alert-danger">
         Enter a name (required)
       </div>
@@ -24,8 +23,8 @@
       <input class="form-check-input"
         type="checkbox"
         name="emailOffers"
-        id="emailOffers"
-        [(ngModel)]="userSettings.emailOffers">
+        formControlName="emailOffers"
+        id="emailOffers">
       <label class="form-check-label font-weight-bold"
         for="emailOffers">
         Email Special Offers
@@ -40,7 +39,7 @@
           name="interfaceStyle"
           id="lightInterface"
           value="light"
-          [(ngModel)]="userSettings.interfaceStyle"
+          formControlName="interfaceStyle"
           checked>
         <label class="form-check-label"
           for="lightInterface">
@@ -52,7 +51,7 @@
           type="radio"
           name="interfaceStyle"
           id="mediumInterface"
-          [(ngModel)]="userSettings.interfaceStyle"
+          formControlName="interfaceStyle"
           value="medium">
         <label class="form-check-label"
           for="mediumInterface">
@@ -63,7 +62,7 @@
         <input class="form-check-input font-weight-bold"
           type="radio"
           name="interfaceStyle"
-          [(ngModel)]="userSettings.interfaceStyle"
+          formControlName="interfaceStyle"
           id="darkInterface"
           value="dark">
         <label class="form-check-label"
@@ -79,7 +78,7 @@
       <select id="subscriptionType"
         class="form-control"
         name="subscriptionType"
-        [(ngModel)]="userSettings.subscriptionType">
+        formControlName="subscriptionType">
         <option value="monthly">monthly</option>
         <option value="Annual">Annual</option>
         <option value="Lifetime">Lifetime</option>
@@ -91,7 +90,7 @@
         class="font-weight-bold">Notes</label>
       <textarea id="notes"
         name="notes"
-        [(ngModel)]="userSettings.notes"
+        formControlName="notes"
         class="form-control"
         rows="3"></textarea>
     </div>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'declarative-form';
+  showDeclarativeForm = false;
+
+  public checkboxClickHandler(event: Event) {
+    // console.log('TCL: AppComponent -> checkboxClickHandler -> event', event);
+    this.showDeclarativeForm = event.target['checked'];
+  }
 }
