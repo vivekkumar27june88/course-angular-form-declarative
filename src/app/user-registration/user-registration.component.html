@@ -83,6 +83,10 @@
         class="form-control col-sm-9"
         name="RepeatPassword" />
     </div>
+    <div *ngIf="regForm.get('login')?.hasError('passwordMatcher')"
+      class="error text-danger text-center m-0">
+      Password didn't matched
+    </div>
 
     <div class="form-group row">
       <label for="securityQuestion"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { allowedUsername } from '../validators/allowed-username-validator';
 import { noDecimal } from '../validators/decimal-validator';
+import { passwordMatcher } from '../validators/password-matcher-validator';
 
 @Component({
   selector: 'app-user-registration',
@@ -33,37 +34,45 @@ export class UserRegistrationComponent implements OnInit {
         ],
         age: ['', { validators: [noDecimal], updateOn: 'change' }]
       }),
-      login: this.fb.group({
-        username: [
-          { value: '', disabled: false },
-          [
-            Validators.required,
-            Validators.minLength(5),
-            Validators.maxLength(50),
-            allowedUsername(['username1', 'username2'])
+      login: this.fb.group(
+        {
+          username: [
+            { value: '', disabled: false },
+            [
+              Validators.required,
+              Validators.minLength(5),
+              Validators.maxLength(50),
+              allowedUsername(['username1', 'username2'])
+            ]
+          ],
+          email: [
+            { value: '', disabled: false },
+            [
+              Validators.required,
+              Validators.email,
+              Validators.minLength(5),
+              Validators.maxLength(50)
+            ]
+          ],
+          password: [
+            { value: '', disabled: false },
+            [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
+          ],
+          repeatPassword: [
+            { value: '', disabled: false },
+            [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
+          ],
+          securityQuestion: [
+            { value: '', disabled: false },
+            [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
+          ],
+          securityAnswer: [
+            { value: '', disabled: false },
+            [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
           ]
-        ],
-        email: [
-          { value: '', disabled: false },
-          [Validators.required, Validators.email, Validators.minLength(5), Validators.maxLength(50)]
-        ],
-        password: [
-          { value: '', disabled: false },
-          [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
-        ],
-        repeatPassword: [
-          { value: '', disabled: false },
-          [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
-        ],
-        securityQuestion: [
-          { value: '', disabled: false },
-          [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
-        ],
-        securityAnswer: [
-          { value: '', disabled: false },
-          [Validators.required, Validators.minLength(5), Validators.maxLength(50)]
-        ]
-      }),
+        },
+        { validator: [passwordMatcher] }
+      ),
       addresses: this.fb.array([this.createAddressFormGroup()])
     });
   }
