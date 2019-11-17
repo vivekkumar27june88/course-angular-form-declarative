@@ -12,12 +12,19 @@
         name="name"
         class="form-control"
         required
-        #nameInp="ngModel">
+        #nameInp="ngModel"
+        appNameCase>
 
       <div [hidden]="!form.submitted || nameInp.invalid"
         class="alert alert-danger">
         Enter a name (required)
       </div>
+
+      <div *ngIf="nameInp.hasError('appNameCase')"
+        class="alert alert-danger">
+        Name should be in lowercase
+      </div>
+      {{nameInp.errors | json}}
     </div>
 
     <div class="form-check form-group mb-4">

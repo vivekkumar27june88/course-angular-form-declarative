@@ -6,9 +6,16 @@ import { AppComponent } from './app.component';
 import { UserSettingsFormsComponent } from './user-settings-forms/user-settings-forms.component';
 import { UserSettingsReactiveFormComponent } from './user-settings-reactive-form/user-settings-reactive-form.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { NameCaseDirective } from './validators/name-case.directive';
 
 @NgModule({
-  declarations: [AppComponent, UserSettingsFormsComponent, UserSettingsReactiveFormComponent, UserRegistrationComponent],
+  declarations: [
+    AppComponent,
+    UserSettingsFormsComponent,
+    UserSettingsReactiveFormComponent,
+    UserRegistrationComponent,
+    NameCaseDirective
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
