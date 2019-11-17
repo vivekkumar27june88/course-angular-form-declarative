@@ -52,6 +52,10 @@
         class="form-control col-sm-9"
         name="username" />
     </div>
+    <div *ngIf="regForm.get('login.username')?.hasError('allowedUsername')"
+      class="error text-danger text-center m-0">
+      Not a allowed username
+    </div>
 
     <div class="form-group row">
       <label for="email"
