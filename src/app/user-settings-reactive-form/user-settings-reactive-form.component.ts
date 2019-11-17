@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { usernameValidator } from '../validators/username-exist-validator';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-settings-reactive-form',
@@ -14,6 +15,7 @@ export class UserSettingsReactiveFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.createForm();
+    this.initValueChange();
   }
 
   ngOnInit() {}
@@ -25,8 +27,24 @@ export class UserSettingsReactiveFormComponent implements OnInit {
       emailOffers: [''],
       interfaceStyle: [''],
       subscriptionType: [''],
+      address: ['', Validators.required],
       notes: ['']
     });
+  }
+
+  initValueChange() {
+    this.userSettingForm
+      .get('subscriptionType')
+      .valueChanges.pipe(distinctUntilChanged())
+      .subscribe(newSubscriptionType => {
+        const address = this.userSettingForm.get('address');
+        if (newSubscriptionType === 'Annual') {
+          address.setValidators([Validators.required]);
+        } else {
+          address.clearValidators();
+        }
+        address.updateValueAndValidity();
+      });
   }
 
   submitUserSettingsForm() {
