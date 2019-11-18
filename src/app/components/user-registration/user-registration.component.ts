@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { allowedUsername } from '../validators/allowed-username-validator';
-import { noDecimal } from '../validators/decimal-validator';
-import { passwordMatcher } from '../validators/password-matcher-validator';
+import { noDecimal, allowedUsername, passwordMatcher } from '../../validators';
 
 @Component({
   selector: 'app-user-registration',
