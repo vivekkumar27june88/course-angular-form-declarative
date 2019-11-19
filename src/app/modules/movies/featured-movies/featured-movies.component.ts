@@ -23,9 +23,6 @@ export class FeaturedMoviesComponent implements OnInit {
   }
 
   openMovieDetailsII(movie: any, imageBaseUrl: string) {
-
-
-
     this.router.navigate([
       '/featured-movies',
       'movie-details',
@@ -36,7 +33,16 @@ export class FeaturedMoviesComponent implements OnInit {
         overview: movie.overview
       }
     ]);
+  }
 
-
+  openMovieDetailsIIIByQuery(movie: any, imageBaseUrl: string) {
+    this.router.navigate(['/featured-movies', 'movie-details-in-query'], {
+      queryParams: {
+        imageBaseUrl,
+        backdrop_path: movie.backdrop_path,
+        title: movie.title,
+        overview: movie.overview
+      }
+    });
   }
 }
