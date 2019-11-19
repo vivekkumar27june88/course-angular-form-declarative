@@ -5,3 +5,4 @@ export * from './top-toolbar/top-toolbar.component';
 export * from './user-registration/user-registration.component';
 export * from './user-settings-forms/user-settings-forms.component';
 export * from './user-settings-reactive-form/user-settings-reactive-form.component';
+export * from './page-not-found/page-not-found.component';

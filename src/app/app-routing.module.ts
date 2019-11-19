@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import {
+  PageNotFoundComponent,
+  UserRegistrationComponent,
   UserSettingsFormsComponent,
-  UserSettingsReactiveFormComponent,
-  UserRegistrationComponent
+  UserSettingsReactiveFormComponent
 } from './components';
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'dynamic-form',
     component: UserRegistrationComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
