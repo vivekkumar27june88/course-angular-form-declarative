@@ -9,4 +9,8 @@ export class MoviesService {
   getAllFeaturedMovies() {
     return this.httpClient.get(`${environment.apiBaseUrl}/movies/trending`);
   }
+
+  getAllPopularMovies() {
+    return this.httpClient.get(`${environment.apiBaseUrl}/movies/popular`);
+  }
 }

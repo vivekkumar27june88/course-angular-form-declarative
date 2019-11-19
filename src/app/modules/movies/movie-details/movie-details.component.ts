@@ -26,5 +26,10 @@ export class MovieDetailsComponent implements OnInit {
         console.log('TCL: MovieDetailsComponent -> ngOnInit -> this.movieDetail', this.movieDetail);
         this.posterBaseUrl = featuredMoviesRes.imageBaseUrl;
       });
+
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.movieId = params.get('movieId');
+      console.log(this.movieId);
+    });
   }
 }

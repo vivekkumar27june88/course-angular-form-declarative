@@ -21,4 +21,22 @@ export class FeaturedMoviesComponent implements OnInit {
     this.router.navigate(['/featured-movies', movieId]);
     // this.router.navigateByUrl(`/featured-movies/${movieId}`);
   }
+
+  openMovieDetailsII(movie: any, imageBaseUrl: string) {
+
+
+
+    this.router.navigate([
+      '/featured-movies',
+      'movie-details',
+      {
+        imageBaseUrl,
+        backdrop_path: movie.backdrop_path,
+        title: movie.title,
+        overview: movie.overview
+      }
+    ]);
+
+
+  }
 }
