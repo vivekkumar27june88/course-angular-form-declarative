@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../movies/services';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MoviesService } from '../services';
 
 @Component({
   selector: 'app-featured-movies',
@@ -10,9 +11,14 @@ import { Observable } from 'rxjs';
 export class FeaturedMoviesComponent implements OnInit {
   public featuredMovies$: Observable<any>;
 
-  constructor(private moviesService: MoviesService) {
+  constructor(private moviesService: MoviesService, private router: Router) {
     this.featuredMovies$ = this.moviesService.getAllFeaturedMovies();
   }
 
   ngOnInit() {}
+
+  openMovieDetails(movieId: string) {
+    this.router.navigate(['/featured-movies', movieId]);
+    // this.router.navigateByUrl(`/featured-movies/${movieId}`);
+  }
 }
