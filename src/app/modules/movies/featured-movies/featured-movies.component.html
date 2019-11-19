@@ -15,8 +15,15 @@
         <div class="px-2 font-weight-bold w-75  d-block text-truncate text-white">
           {{movie.original_title}}
         </div>
+
         <span (click)="openMovieDetailsII(movie, moviesRes.imageBaseUrl)">
-          <i class="fa fa-info-circle text-warning px-3"
+          <i class="fa fa-info-circle text-warning"
+            style="font-size: 28px; cursor: pointer;">
+          </i>
+        </span>
+
+        <span (click)="openMovieDetailsIIIByQuery(movie, moviesRes.imageBaseUrl)">
+          <i class="fa fa-question-circle text-danger px-3"
             style="font-size: 28px; cursor: pointer;">
           </i>
         </span>
