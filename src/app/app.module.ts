@@ -15,6 +15,7 @@ import {
 } from './components';
 import { NameCaseDirective } from './validators/name-case.directive';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MoviesModule } from './modules/';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FooterComponent,
     PageNotFoundComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    MoviesModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
