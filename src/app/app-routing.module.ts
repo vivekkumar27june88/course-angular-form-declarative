@@ -21,6 +21,11 @@ const routes: Routes = [
     component: UserRegistrationComponent
   },
   {
+    path: '',
+    redirectTo: 'dynamic-form',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }
