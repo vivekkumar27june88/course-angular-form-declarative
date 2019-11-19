@@ -14,6 +14,7 @@ import {
   UserSettingsReactiveFormComponent
 } from './components';
 import { NameCaseDirective } from './validators/name-case.directive';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NameCaseDirective } from './validators/name-case.directive';
     MainframeComponent,
     TopToolbarComponent,
     ContentViewComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
