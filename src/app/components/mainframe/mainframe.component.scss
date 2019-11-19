@@ -1,8 +1,6 @@
 :host {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: min-content auto 50px;
+  min-height: 100vh;
 }
 
-app-content-view {
-  min-height: calc(100vh - 50px - 70px);
-}
