@@ -13,9 +13,9 @@ import {
   UserSettingsFormsComponent,
   UserSettingsReactiveFormComponent
 } from './components';
-import { NameCaseDirective } from './validators/name-case.directive';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MoviesModule } from './modules/';
+import { NameCaseDirective } from './validators';
 
 @NgModule({
   declarations: [
