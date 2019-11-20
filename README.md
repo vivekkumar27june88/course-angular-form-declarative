@@ -1,27 +1,44 @@
-# DeclarativeForm
+# Configuring tailwind css
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+#### Install the required dependencies
+```shellscript
+npm i -D tailwindcss gulp gulp-postcss
+```
 
-## Development server
+#### Generate the default tailwind configuration
+```
+./node_modules/.bin/tailwind init --full
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### Prepare the gulp build script
+```js
+const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const tailwindcss = require('tailwindcss');
 
-## Code scaffolding
+const PATH = {
+    css: './src/tailwind-custom.css',
+    config: './tailwind.config.js',
+    dist: './src/'
+};
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+gulp.task('tailwind', () => {
+    return gulp
+        .src(PATH.css)
+        .pipe(postcss([tailwindcss(PATH.config), require('autoprefixer')]))
+        .pipe(gulp.dest(PATH.dist));
+});
 
-## Build
+``` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### create `tailwind-custom.css` file with the tailwind modules required
+```css
+@tailwind base;
+@tailwind utilities;
+```
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Run the gulp task `css` to generate the custom tailwind css file
+```shellscript
+./node_modules/.bin/gulp css
+```
