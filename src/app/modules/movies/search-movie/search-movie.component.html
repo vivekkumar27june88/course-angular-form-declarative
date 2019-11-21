@@ -1,0 +1,113 @@
+<div>
+  <form #form="ngForm"
+    class="form-inline d-flex flex-row justify-content-center align-items-center m-5"
+    (ngSubmit)="submitMovieSearchForm(form)">
+
+    <div>
+      <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-search"></i></div>
+        </div>
+        <input type="text"
+          class="form-control"
+          id="search-input"
+          name="search-input"
+          ngModel
+          placeholder="Search Movie">
+      </div>
+      <div *ngIf="searchError!.msg"
+        class="text-danger">{{searchError.msg}}</div>
+    </div>
+
+    <button type="submit"
+      class="btn btn-primary my-1">Search</button>
+  </form>
+</div>
+
+<div>
+  <div class="card my-5 mx-auto"
+    style="max-width: 700px;"
+    *ngIf="!searchError!.msg">
+    <img src="{{searchedMovie.imageBaseUrl+searchedMovie.data.backdrop_path}}"
+      class="card-img-top"
+      alt="">
+    <div class="card-body">
+      <h5 class="card-title">{{searchedMovie?.data.title}}</h5>
+      <p class="card-text">{{searchedMovie?.data!.overview}}</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- {
+  "data": {
+    "adult": false,
+    "backdrop_path": "/z2QUexmccqrvw1kDMw3R8TxAh5E.jpg",
+    "belongs_to_collection": null,
+    "budget": 0,
+    "genres": [
+      {
+        "id": 18,
+        "name": "Drama"
+      },
+      {
+        "id": 80,
+        "name": "Crime"
+      },
+      {
+        "id": 35,
+        "name": "Comedy"
+      }
+    ],
+    "homepage": null,
+    "id": 2,
+    "imdb_id": "tt0094675",
+    "original_language": "fi",
+    "original_title": "Ariel",
+    "overview": "Taisto Kasurinen is a Finnish coal miner whose father has just committed suicide and who is framed for a crime he did not commit. In jail, he starts to dream about leaving the country and starting a new life. He escapes from prison but things don't go as planned...",
+    "popularity": 8.848,
+    "poster_path": "/gZCJZOn4l0Zj5hAxsMbxoS6CL0u.jpg",
+    "production_companies": [
+      {
+        "id": 2303,
+        "logo_path": null,
+        "name": "Villealfa Filmproductions",
+        "origin_country": "FI"
+      }
+    ],
+    "production_countries": [
+      {
+        "iso_3166_1": "FI",
+        "name": "Finland"
+      }
+    ],
+    "release_date": "1988-10-21",
+    "revenue": 0,
+    "runtime": 73,
+    "spoken_languages": [
+      {
+        "iso_639_1": "de",
+        "name": "Deutsch"
+      },
+      {
+        "iso_639_1": "fi",
+        "name": "suomi"
+      }
+    ],
+    "status": "Released",
+    "tagline": "",
+    "title": "Ariel",
+    "video": false,
+    "vote_average": 6.9,
+    "vote_count": 86
+  },
+  "imageBaseUrl": "https://image.tmdb.org/t/p/w1280/"
+} -->
+
+<!--
+  MOVIE ID
+  "id": 474350,
+  "id": 423204,
+  "id": 330457,
+  "id": 513409,
+-->

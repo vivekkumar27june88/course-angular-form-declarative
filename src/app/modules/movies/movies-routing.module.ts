@@ -5,7 +5,11 @@ import { MovieDetailsIIComponent } from "./movie-details-ii/movie-details-ii.com
 import { MovieDetailsIIIQueryComponent } from "./movie-details-iii-query/movie-details-iii-query.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
 import { PopularMoviesComponent } from "./popular-movies/popular-movies.component";
-import { PopularMoviesDataResolverService } from "./services";
+import { SearchMovieComponent } from "./search-movie/search-movie.component";
+import {
+  PopularMoviesDataResolverService,
+  SearchMovieDataResolverService
+} from "./services";
 
 const routes: Routes = [
   {
@@ -32,6 +36,13 @@ const routes: Routes = [
     component: PopularMoviesComponent,
     resolve: {
       popularMovies: PopularMoviesDataResolverService
+    }
+  },
+  {
+    path: "search-movie/:movieId",
+    component: SearchMovieComponent,
+    resolve: {
+      searchedMovie: SearchMovieDataResolverService
     }
   }
 ];
