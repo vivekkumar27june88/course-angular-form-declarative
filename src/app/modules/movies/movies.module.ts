@@ -7,6 +7,7 @@ import { MoviesComponent } from './movies.component';
 import { MoviesService } from './services/movies.service';
 import { MovieDetailsIIComponent } from './movie-details-ii/movie-details-ii.component';
 import { MovieDetailsIIIQueryComponent } from './movie-details-iii-query/movie-details-iii-query.component';
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MovieDetailsIIIQueryComponent } from './movie-details-iii-query/movie-d
     FeaturedMoviesComponent,
     MovieDetailsComponent,
     MovieDetailsIIComponent,
-    MovieDetailsIIIQueryComponent
+    MovieDetailsIIIQueryComponent,
+    PopularMoviesComponent
   ],
   imports: [CommonModule, MoviesRoutingModule],
   providers: [MoviesService]

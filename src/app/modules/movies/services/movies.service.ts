@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "../../../../environments/environment";
 
 @Injectable()
 export class MoviesService {
@@ -12,5 +12,9 @@ export class MoviesService {
 
   getAllPopularMovies() {
     return this.httpClient.get(`${environment.apiBaseUrl}/movies/popular`);
+  }
+
+  getMovieDetailsById(movieId: number) {
+    return this.httpClient.get(`${environment.apiBaseUrl}/movie/${movieId}`);
   }
 }

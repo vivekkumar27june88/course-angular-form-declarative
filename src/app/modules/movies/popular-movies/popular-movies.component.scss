@@ -1,0 +1,13 @@
+.popular-movies-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+  justify-items: center;
+}
+
+.scale-on-hover {
+  transition: transform 300ms ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
