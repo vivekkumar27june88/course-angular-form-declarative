@@ -1,0 +1,21 @@
+<div class="popular-movies-container my-5">
+
+  <div *ngFor="let pm of popularMovies.data.results"
+    class="card scale-on-hover"
+    style="width: 350px">
+
+    <img src="{{popularMovies.imageBaseUrl + pm.poster_path}}"
+      class="card-img-top"
+      alt="{{pm.title}}">
+
+    <div class="card-body">
+      <h5 class="card-title">{{pm.title}}</h5>
+      <p class="card-text text-truncate"
+        style="max-height: 250px;">{{pm.overview}}
+      </p>
+      <a routerLink="['/popular-movies/', pm.id]"
+        class="btn btn-primary">Details <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+</div>

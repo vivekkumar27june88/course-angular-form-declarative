@@ -1,29 +1,38 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { FeaturedMoviesComponent } from './featured-movies/featured-movies.component';
-import { MovieDetailsIIComponent } from './movie-details-ii/movie-details-ii.component';
-import { MovieDetailsIIIQueryComponent } from './movie-details-iii-query/movie-details-iii-query.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { FeaturedMoviesComponent } from "./featured-movies/featured-movies.component";
+import { MovieDetailsIIComponent } from "./movie-details-ii/movie-details-ii.component";
+import { MovieDetailsIIIQueryComponent } from "./movie-details-iii-query/movie-details-iii-query.component";
+import { MovieDetailsComponent } from "./movie-details/movie-details.component";
+import { PopularMoviesComponent } from "./popular-movies/popular-movies.component";
+import { PopularMoviesDataResolverService } from "./services";
 
 const routes: Routes = [
   {
-    path: 'featured-movies',
+    path: "featured-movies",
     component: FeaturedMoviesComponent,
-    pathMatch: 'full'
+    pathMatch: "full"
   },
   {
-    path: 'featured-movies/movie-details',
+    path: "featured-movies/movie-details",
     component: MovieDetailsIIComponent,
-    pathMatch: 'full'
+    pathMatch: "full"
   },
   {
-    path: 'featured-movies/movie-details-in-query',
+    path: "featured-movies/movie-details-in-query",
     component: MovieDetailsIIIQueryComponent,
-    pathMatch: 'full'
+    pathMatch: "full"
   },
   {
-    path: 'featured-movies/:movieId',
+    path: "featured-movies/:movieId",
     component: MovieDetailsComponent
+  },
+  {
+    path: "popular-movies",
+    component: PopularMoviesComponent,
+    resolve: {
+      popularMovies: PopularMoviesDataResolverService
+    }
   }
 ];
 
