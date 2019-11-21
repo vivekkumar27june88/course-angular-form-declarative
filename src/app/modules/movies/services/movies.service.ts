@@ -15,6 +15,6 @@ export class MoviesService {
   }
 
   getMovieDetailsById(movieId: number) {
-    return this.httpClient.get(`${environment.apiBaseUrl}/movie/${movieId}`);
+    return this.httpClient.get(`${environment.apiBaseUrl}/movies/${movieId}`);
   }
 }

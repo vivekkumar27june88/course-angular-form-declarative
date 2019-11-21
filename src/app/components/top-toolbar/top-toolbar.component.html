@@ -64,13 +64,20 @@
         </a>
         <div class="dropdown-menu"
           aria-labelledby="navbarDropdown">
+
           <a class="dropdown-item"
             routerLinkActive="active"
             [routerLink]="['/featured-movies']">Featured Movies</a>
+
           <div class="dropdown-divider"></div>
           <a class="dropdown-item"
             routerLinkActive="active"
             [routerLink]="['/popular-movies']">Popular Movies</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['/search-movie', 0]">Search Movie By Id</a>
         </div>
       </li>
 
